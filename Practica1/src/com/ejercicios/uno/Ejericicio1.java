@@ -95,7 +95,7 @@ public class Ejericicio1 {
 		byte less= 120;
 		for (int i = 0; i < values.length; i++) {
 			
-			if(i +1 < values.length)
+			//if(i +1 < values.length)
 				
 			if(values[i]< less ) less = values[i];
 			

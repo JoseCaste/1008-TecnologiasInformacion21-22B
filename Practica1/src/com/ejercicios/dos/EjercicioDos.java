@@ -24,7 +24,72 @@ public class EjercicioDos {
 		printRigtToLeftSumDiagonal(matriz);
 		System.out.println("****Suma de la última diagonal****");
 		printSumToFinalRow(matriz);
+		System.out.println("****Cubo mágico****");
+		//loadMagicCube(matriz);
+		verifyIfItsMagicCube(matriz);
 		
+	}
+
+	private static void loadMagicCube(byte[][] matriz) {
+		// TODO Auto-generated method stub
+		matriz[0][0] = 8;
+		matriz[0][1] = 1;
+		matriz[0][2] = 6;
+		
+		matriz[1][0] = 3;
+		matriz[1][1] = 5;
+		matriz[1][2] = 7;
+		
+		matriz[2][0] = 4;
+		matriz[2][1] = 9;
+		matriz[2][2] = 2;
+	}
+
+	private static void verifyIfItsMagicCube(final byte[][] matriz) {
+		
+		//normal iteration
+		short countNormal = 0;
+		short countReverse= 0;
+		boolean flag= true;
+		
+		for (byte i = 0; i < matriz.length; i++) {
+			
+			for (byte j = 0; j < matriz.length; j++) {
+				
+				countNormal += (short) (matriz[i][j]);
+				
+				countReverse += (short) (matriz[j][i]);
+			}
+			if(countNormal != 15) {
+				
+				flag= !flag;
+				break;
+			}
+			if(countReverse != 15) {
+				
+				flag= !flag;
+				break;
+			}
+			countNormal = 0;
+			countReverse = 0;
+			
+		}
+		countNormal = 0;
+		if(flag) {
+			for (int i = 0; i < matriz.length; i++) {
+				
+				countNormal += (short) (matriz[i][i]);
+				
+			}
+			
+			if(countNormal != 15)
+				flag= !flag;
+			
+		}
+		if(!flag)
+			System.out.println("____No es cúbo mágico");
+		else
+			System.out.println("____Es cúbo mágico");
 	}
 
 	private static void printSumToFinalRow(final byte[][] matriz) {
