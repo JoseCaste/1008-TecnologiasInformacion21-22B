@@ -1,10 +1,8 @@
 package com.informatica.formulariocontacto;
 
-import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
