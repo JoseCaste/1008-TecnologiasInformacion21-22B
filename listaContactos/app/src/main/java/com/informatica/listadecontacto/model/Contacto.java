@@ -5,39 +5,39 @@ import java.io.Serializable;
 
 public class Contacto implements Serializable {
 
-    private String name;
+    private String id;
 
-    private String email;
+    private String titulo;
 
-    private String phone;
+    private String url;
 
-    public Contacto(String name, String email, String phone) {
-        this.name = name;
-        this.email = email;
-        this.phone = phone;
+    public Contacto(String id, String titulo, String url) {
+        this.id = id;
+        this.titulo = titulo;
+        this.url = url;
     }
 
-    public String getName() {
-        return name;
+    public String getId() {
+        return id;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public String getEmail() {
-        return email;
+    public String getTitulo() {
+        return titulo;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getUrl() {
+        return url;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

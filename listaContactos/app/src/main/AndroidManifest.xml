@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.informatica.listadecontacto">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
@@ -11,7 +13,8 @@
             android:theme="@style/Theme.ListaDeContacto">
         <activity
                 android:name=".DetalleContacto"
-                android:exported="true"/>
+                android:exported="true"
+                android:parentActivityName=".MainActivity"/>
         <activity
                 android:name=".MainActivity"
                 android:exported="true">
