@@ -1,4 +1,4 @@
-package com.informatica.listadecontacto;
+package com.informatica.listadecontacto.activities;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -7,6 +7,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import com.informatica.listadecontacto.R;
 import com.informatica.listadecontacto.model.Contacto;
 import com.informatica.listadecontacto.model.RetroPhoto;
 import com.informatica.listadecontacto.retrofit.RetrofitInstance;

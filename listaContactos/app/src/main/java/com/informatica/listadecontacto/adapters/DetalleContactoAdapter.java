@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import com.informatica.listadecontacto.DetalleContacto;
+import com.informatica.listadecontacto.activities.DetalleContacto;
 import com.informatica.listadecontacto.R;
 import com.informatica.listadecontacto.model.Contacto;
 import com.jakewharton.picasso.OkHttp3Downloader;
