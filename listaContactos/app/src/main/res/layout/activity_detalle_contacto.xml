@@ -6,7 +6,7 @@
         android:layout_width="match_parent"
         android:orientation="vertical"
         android:layout_height="match_parent"
-        tools:context=".DetalleContacto">
+        tools:context=".activities.DetalleContacto">
     <TextView
             android:text="TextView"
             android:layout_width="110dp"

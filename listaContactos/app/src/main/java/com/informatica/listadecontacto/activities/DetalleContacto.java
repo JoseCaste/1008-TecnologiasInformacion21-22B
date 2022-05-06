@@ -1,4 +1,4 @@
-package com.informatica.listadecontacto;
+package com.informatica.listadecontacto.activities;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -7,7 +7,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import com.informatica.listadecontacto.R;
 import com.informatica.listadecontacto.model.Contacto;
+import com.informatica.listadecontacto.model.RetroPhoto;
+import com.informatica.listadecontacto.retrofit.RetrofitInstance;
+import com.informatica.listadecontacto.retrofit.services.PhotoService;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+import java.util.List;
 
 public class DetalleContacto extends AppCompatActivity {
 
@@ -23,13 +32,14 @@ public class DetalleContacto extends AppCompatActivity {
         Intent intent= getIntent();
         Contacto contacto = (Contacto) intent.getExtras().get("KEY_EXTRA_CONTACT");
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         txtNameValue = findViewById(R.id.txtNameValue);
         txtEmailValue = findViewById(R.id.txtEmailValue);
         txtPhoneValue = findViewById(R.id.txtPhoneValue);
 
-        txtNameValue.setText(contacto.getName());
-        txtEmailValue.setText(contacto.getEmail());
-        txtPhoneValue.setText(contacto.getPhone());
+        txtNameValue.setText(contacto.getId());
+        txtEmailValue.setText(contacto.getTitulo());
+        txtPhoneValue.setText(contacto.getUrl());
 
         LinearLayout llPhone = findViewById(R.id.detalleContacto);
         llPhone.setOnClickListener( view -> {
@@ -37,5 +47,17 @@ public class DetalleContacto extends AppCompatActivity {
             intentCall.setData(Uri.parse(String.format("tel:%s",txtPhoneValue.getText().toString())));
             startActivity(intentCall);
         });
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Toast.makeText(this, "Activity contacto destruido", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Toast.makeText(this, "Activity contacto pausado", Toast.LENGTH_SHORT).show();
     }
 }
