@@ -3,14 +3,18 @@ package com.informatica.listadecontacto.adapters;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.TextView;
+import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.informatica.listadecontacto.activities.DetalleContacto;
 import com.informatica.listadecontacto.R;
+import com.informatica.listadecontacto.activities.DetalleContactoDetailFragment;
 import com.informatica.listadecontacto.model.Contacto;
 import com.jakewharton.picasso.OkHttp3Downloader;
 import com.squareup.picasso.Picasso;
@@ -51,10 +55,27 @@ public class DetalleContactoAdapter extends RecyclerView.Adapter<DetalleContacto
 
         createPiccasoDisplay(holder, position);
         holder.itemView.setOnClickListener(view -> {
-
-            Intent intent = new Intent(view.getContext(), DetalleContacto.class);
-            intent.putExtra("KEY_EXTRA_CONTACT",contactoList.get(position));
-            view.getContext().startActivity(intent);
+            PopupMenu popup = new PopupMenu(view.getContext(), view);
+            popup.setOnMenuItemClickListener(viewPopUp->{
+                switch (viewPopUp.getItemId()){
+                    case R.id.item_detail_intent:
+                        Toast.makeText(view.getContext(), "Intent detail", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(view.getContext(), DetalleContacto.class);
+                        intent.putExtra("KEY_EXTRA_CONTACT",contactoList.get(position));
+                        view.getContext().startActivity(intent);
+                        break;
+                    case R.id.item_detail_fragment:
+                        Toast.makeText(view.getContext(), "Fragment detail", Toast.LENGTH_SHORT).show();
+                        Intent intent_detail_fragment = new Intent(view.getContext(), DetalleContactoDetailFragment.class);
+                        intent_detail_fragment.putExtra("KEY_EXTRA_CONTACT", contactoList.get(position));
+                        view.getContext().startActivity(intent_detail_fragment);
+                        break;
+                }
+                return false;
+            });
+            MenuInflater inflater = popup.getMenuInflater();
+            inflater.inflate(R.menu.detail_menu, popup.getMenu());
+            popup.show();
         });
     }
 
