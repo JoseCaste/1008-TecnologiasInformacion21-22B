@@ -11,7 +11,7 @@
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:overScrollMode="never"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             tools:layout_editor_absoluteX="0dp" app:layout_constraintTop_toBottomOf="@+id/btnPopUp"/>
     <Button
             android:text="Button"

@@ -11,10 +11,12 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.informatica.listadecontacto.R;
 import com.informatica.listadecontacto.adapters.DetalleContactoAdapter;
+import com.informatica.listadecontacto.fragments.ContactListFragment;
 import com.informatica.listadecontacto.model.Contacto;
 import com.informatica.listadecontacto.model.RetroPhoto;
 import com.informatica.listadecontacto.retrofit.RetrofitInstance;
@@ -59,6 +61,9 @@ public class MainActivity extends AppCompatActivity {
             inflater.inflate(R.menu.item_menu, popup.getMenu());
             popup.show();
         });
+        /*FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.fragment_detail, new ContactListFragment()).commit();*/
+
         loadResources();
     }
 
