@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Petshop</string>
+    <string name="pet_name">Pet Name</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="name">Nombre</string>
+    <string name="email">Correo electrónico</string>
+    <string name="comments">Comentarios</string>
+    <string name="send_email">Enviar correo</string>
+    <string name="developer">Nombre: Juan José Castellanos Guzmán</string>
+    <string name="carrier">Carrera: Lic. en Informática</string>
+    <string name="university">Universidad del Istmo, Campus Ixtepec</string>
+</resources>
