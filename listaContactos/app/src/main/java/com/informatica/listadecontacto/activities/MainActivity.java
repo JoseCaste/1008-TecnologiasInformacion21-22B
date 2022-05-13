@@ -1,5 +1,6 @@
 package com.informatica.listadecontacto.activities;
 
+import android.content.Intent;
 import android.os.Build;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -50,6 +51,8 @@ public class MainActivity extends AppCompatActivity {
                     break;
                     case R.id.submenu_2:
                         Toast.makeText(this, "Submenu 2", Toast.LENGTH_SHORT).show();
+                        Intent intentViewPager = new Intent(this, ViewPagerActivity.class);
+                        startActivity(intentViewPager);
                         break;
                     case R.id.submenu_3:
                         Toast.makeText(this, "Submenu 3", Toast.LENGTH_SHORT).show();
