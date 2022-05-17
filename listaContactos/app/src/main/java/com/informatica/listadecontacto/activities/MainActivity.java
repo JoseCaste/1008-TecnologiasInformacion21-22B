@@ -1,6 +1,8 @@
 package com.informatica.listadecontacto.activities;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Build;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -12,6 +14,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -30,6 +33,7 @@ import java.util.stream.Collectors;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final int BLUETOOTH_REQUEST = 1;
     private List<Contacto> contactoList;
     private List<String> names;
     private ListView lstContacto;
@@ -56,6 +60,11 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.submenu_3:
                         Toast.makeText(this, "Submenu 3", Toast.LENGTH_SHORT).show();
+                        try {
+                            requestBluetoothPermission();
+                        }catch (Exception exception){
+                            Toast.makeText(this, exception.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
                         break;
                 }
                 return false;
@@ -68,6 +77,32 @@ public class MainActivity extends AppCompatActivity {
         fragmentManager.beginTransaction().replace(R.id.fragment_detail, new ContactListFragment()).commit();*/
 
         loadResources();
+    }
+
+    private void requestBluetoothPermission() throws Exception{
+        if(checkSelfPermission(Manifest.permission.BLUETOOTH )== PackageManager.PERMISSION_GRANTED){
+            Toast.makeText(this, "Permisios de BLUETOOTH concedidos", Toast.LENGTH_SHORT).show();
+        }else{
+            if(!ActivityCompat.shouldShowRequestPermissionRationale(this,Manifest.permission.BLUETOOTH)){
+                throw new Exception("Se necesitan permisos de BLUETOOTH para usar esta característica");
+
+            }else
+                Toast.makeText(this, "Permisos dados-", Toast.LENGTH_SHORT).show();
+
+            ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.BLUETOOTH}, BLUETOOTH_REQUEST);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if(requestCode == BLUETOOTH_REQUEST){
+
+            if(grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                Toast.makeText(this, "Permisos dados", Toast.LENGTH_SHORT).show();
+            } else Toast.makeText(this, "Permisos no concedidos", Toast.LENGTH_SHORT).show();
+        }else Toast.makeText(this, "Permisos denegados", Toast.LENGTH_SHORT).show();
+
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 
     private void loadResources() {
