@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(this, "Inicio", Toast.LENGTH_SHORT).show();
                     break;
                     case R.id.submenu_2:
-                        Toast.makeText(this, "Submenu 2", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "ViewPager", Toast.LENGTH_SHORT).show();
                         Intent intentViewPager = new Intent(this, ViewPagerActivity.class);
                         startActivity(intentViewPager);
                         break;
@@ -73,8 +73,6 @@ public class MainActivity extends AppCompatActivity {
             inflater.inflate(R.menu.item_menu, popup.getMenu());
             popup.show();
         });
-        /*FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.fragment_detail, new ContactListFragment()).commit();*/
 
         loadResources();
     }
