@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item android:title="Inicio" android:id="@+id/menu_inicio"/>
-    <item android:title="submenu 2" android:id="@+id/submenu_2"/>
+    <item android:title="View pager" android:id="@+id/submenu_2"/>
     <item android:title="BLUETOOTH" android:id="@+id/submenu_3"/>
     <item android:id="@+id/submenu_4" android:title="Submenu 4" app:showAsAction="always"/>
     <item android:id="@+id/refresh" android:title="Refresh" android:icon="@android:drawable/ic_menu_rotate" app:showAsAction="always"/>

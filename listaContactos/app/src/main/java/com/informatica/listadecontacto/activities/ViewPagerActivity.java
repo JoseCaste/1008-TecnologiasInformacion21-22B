@@ -10,6 +10,7 @@ import com.google.android.material.tabs.TabLayoutMediator;
 import com.informatica.listadecontacto.R;
 import com.informatica.listadecontacto.adapters.ViewPagerAdapter;
 import com.informatica.listadecontacto.fragments.ContactListFragment;
+import com.informatica.listadecontacto.fragments.FileIoFragment;
 import com.informatica.listadecontacto.model.Contacto;
 
 import java.lang.reflect.Array;
@@ -30,7 +31,7 @@ public class ViewPagerActivity extends AppCompatActivity {
         tabLayout = findViewById(R.id.tab_layout);
 
         viewPager2 = findViewById(R.id.view_pager);
-        final List<Fragment> fragmentList = Arrays.asList(new Fragment(),new ContactListFragment(new Contacto("Jose","Some title","https://google.com")), new Fragment());
+        final List<Fragment> fragmentList = Arrays.asList(new FileIoFragment(),new ContactListFragment(new Contacto("Jose","Some title","https://google.com")), new Fragment());
 
         viewPager2.setAdapter(new ViewPagerAdapter(this,fragmentList));
 

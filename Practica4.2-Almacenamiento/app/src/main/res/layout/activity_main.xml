@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".activities.MainActivity">
+
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:layout_margin="15dp"
+            android:hint="@string/contact_name"
+            android:id="@+id/txtContactName" android:minHeight="48dp"/>
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:layout_margin="15dp"
+            android:hint="@string/contact_phone"
+            android:id="@+id/txtContactPhone" android:minHeight="48dp"/>
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:layout_margin="15dp"
+            android:hint="@string/email"
+            android:id="@+id/txtContactEmail" android:minHeight="48dp"/>
+    <Button
+            android:text="@string/save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:id="@+id/btnGuardar"/>
+    <Button
+            android:text="@string/recover"
+            android:layout_width="match_parent"
+            android:layout_margin="15dp"
+            android:layout_height="wrap_content" android:id="@+id/btnRecover"/>
+    <Button
+            android:text="@string/preferences"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp" android:id="@+id/btnPreferences"/>
+</LinearLayout>
