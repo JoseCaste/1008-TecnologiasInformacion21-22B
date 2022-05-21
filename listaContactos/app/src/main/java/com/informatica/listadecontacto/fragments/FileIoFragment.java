@@ -73,5 +73,12 @@ public class FileIoFragment extends Fragment {
         editor.putString("DATUM",datum);
         editor.putString("EMAIL",email);
         editor.apply();
+
+        loadResourcesSharedPreferences();
+    }
+
+    private void loadResourcesSharedPreferences() {
+        SharedPreferences sharedPreferences = getContext().getSharedPreferences("contacts",Context.MODE_PRIVATE);
+        Toast.makeText(getContext(), sharedPreferences.getString("DATUM","NULL").concat("-").concat(sharedPreferences.getString("EMAIL","NULL")), Toast.LENGTH_SHORT).show();
     }
 }

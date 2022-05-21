@@ -8,19 +8,16 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.PopupMenu;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import androidx.core.app.ActivityCompat;
-import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.informatica.listadecontacto.R;
 import com.informatica.listadecontacto.adapters.DetalleContactoAdapter;
-import com.informatica.listadecontacto.fragments.ContactListFragment;
 import com.informatica.listadecontacto.model.Contacto;
 import com.informatica.listadecontacto.model.RetroPhoto;
 import com.informatica.listadecontacto.retrofit.RetrofitInstance;
@@ -35,8 +32,6 @@ public class MainActivity extends AppCompatActivity {
 
     private static final int BLUETOOTH_REQUEST = 1;
     private List<Contacto> contactoList;
-    private List<String> names;
-    private ListView lstContacto;
     private RecyclerView recyclerView;
     private DetalleContactoAdapter adapter;
     private Button btnPopUp;

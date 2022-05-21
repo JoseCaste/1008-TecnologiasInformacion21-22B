@@ -1,6 +1,7 @@
-package com.informatica.unistmo.almacenamiento;
+package com.informatica.unistmo.almacenamiento.activities;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Build;
 import android.util.Patterns;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import com.informatica.unistmo.almacenamiento.R;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -65,6 +67,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void startPreferences() throws Exception{
+        startActivity(new Intent(this,PreferencesActivity.class));
     }
 
     private void recoverContact() throws Exception{

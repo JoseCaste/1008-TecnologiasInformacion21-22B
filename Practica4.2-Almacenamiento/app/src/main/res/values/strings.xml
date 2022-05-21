@@ -6,4 +6,7 @@
     <string name="save">Guardar</string>
     <string name="recover">Recuperar</string>
     <string name="preferences">Preferencias</string>
+    <string name="background_color">Color de fondo</string>
+    <string name="text_color">Color de letra</string>
+    <string name="guardar_preferencias">Guardar preferencias</string>
 </resources>

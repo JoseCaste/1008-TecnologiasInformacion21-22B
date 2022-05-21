@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".activities.PreferencesActivity">
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:layout_margin="15dp"
+            android:hint="@string/background_color"
+            android:id="@+id/txtBackgroundColor" android:minHeight="48dp"/>
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:layout_margin="15dp"
+            android:hint="@string/text_color"
+            android:id="@+id/txtFontColor" android:minHeight="48dp"/>
+    <Button
+            android:text="@string/guardar_preferencias"
+            android:layout_width="match_parent"
+            android:layout_margin="15dp"
+            android:layout_height="wrap_content" android:id="@+id/btnSavePreference"/>
+</LinearLayout>
