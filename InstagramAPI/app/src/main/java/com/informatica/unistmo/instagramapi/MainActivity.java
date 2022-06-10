@@ -1,14 +1,21 @@
 package com.informatica.unistmo.instagramapi;
 
+import android.os.Build;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import androidx.recyclerview.widget.RecyclerView;
 import com.informatica.unistmo.instagramapi.apiInterface.ApiService;
+import com.informatica.unistmo.instagramapi.retrofitconfig.ComposeResource;
+import com.informatica.unistmo.instagramapi.retrofitconfig.InstagramResource;
 import com.informatica.unistmo.instagramapi.retrofitconfig.InstragramBody;
 import com.informatica.unistmo.instagramapi.retrofitconfig.RetrofitInstance;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,19 +38,36 @@ public class MainActivity extends AppCompatActivity {
 
     private void loadResources() {
         apiService = RetrofitInstance.getClient("https://graph.instagram.com/").create(ApiService.class);
-        apiService.getMe("id,username","IGQVJXQnBPejRDaWExTDBJZAzExSklGVzFnM0N3Um1QWjZAMZAG9NRnY0VkJqa2lzdlNzZA2xvQ2V4SzlBU3E4a2FNNTY5V2F5ZA2JYZAE5LdXhLQmdjTUVOQUgzSWI0V2VHc3NfYVpNMVlUdjZAlOWlBUm9PcAZDZD")
+        /*apiService.getMe("id,username","IGQVJXQnBPejRDaWExTDBJZAzExSklGVzFnM0N3Um1QWjZAMZAG9NRnY0VkJqa2lzdlNzZA2xvQ2V4SzlBU3E4a2FNNTY5V2F5ZA2JYZAE5LdXhLQmdjTUVOQUgzSWI0V2VHc3NfYVpNMVlUdjZAlOWlBUm9PcAZDZD")
                 .enqueue(new Callback<InstragramBody>() {
                     @Override
                     public void onResponse(Call<InstragramBody> call, Response<InstragramBody> response) {
                         setValues(response.body());
+                        loadRecycleyView();
                     }
 
                     @Override
                     public void onFailure(Call<InstragramBody> call, Throwable t) {
                         t.printStackTrace();
                     }
-                });
+                });*/
+        apiService.getComposeResources("id,caption",AccessToken.ACCESS_TOKEN.getToken()).enqueue(new Callback<List<ComposeResource>>() {
+            @Override
+            public void onResponse(Call<List<ComposeResource>> call, Response<List<ComposeResource>> response) {
+                final List<ComposeResource> list = response.body();
+            }
+
+            @Override
+            public void onFailure(Call<List<ComposeResource>> call, Throwable t) {
+
+            }
+        });
         
+    }
+
+    private void loadRecycleyView() {
+        RecyclerView recyclerView
+                = findViewById(R.id.listMultimedia);
     }
 
     private void setValues(InstragramBody body) {
