@@ -4,52 +4,30 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class InstagramResource {
-    @SerializedName("id")
-    @Expose
-    private String id;
-    @SerializedName("media_type")
-    @Expose
-    private String mediaType;
-    @SerializedName("media_url")
-    @Expose
-    private String mediaUrl;
-    @SerializedName("username")
-    @Expose
-    private String username;
-    @SerializedName("timestamp")
-    @Expose
+    private String media_url;
+    private String userName;
     private String timestamp;
 
-    public String getId() {
-        return id;
+    public InstagramResource(String media_url, String userName, String timestamp){
+        this.media_url = media_url;
+        this.userName = userName;
+        this.timestamp = timestamp;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public String getMedia_url() {
+        return media_url;
     }
 
-    public String getMediaType() {
-        return mediaType;
+    public void setMedia_url(String media_url) {
+        this.media_url = media_url;
     }
 
-    public void setMediaType(String mediaType) {
-        this.mediaType = mediaType;
+    public String getUserName() {
+        return userName;
     }
 
-    public String getMediaUrl() {
-        return mediaUrl;
-    }
-
-    public void setMediaUrl(String mediaUrl) {
-        this.mediaUrl = mediaUrl;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getTimestamp() {

@@ -46,9 +46,9 @@ public class ResourceAdapter extends RecyclerView.Adapter<ResourceAdapter.Resour
     public void onBindViewHolder(@NonNull ResourceDetailViewHolder holder, int position) {
 
         final InstagramResource instagramResource= instagramResourceList.get(position);
-        holder.txtInstragramId.setText(String.valueOf(instagramResource.getId()));
+        holder.txtInstragramId.setText(String.valueOf(instagramResource.getUserName()));
         holder.tvTimestamp.setText(instagramResource.getTimestamp());
-        holder.tvInstagramName.setText(instagramResource.getUsername());
+        holder.tvInstagramName.setText(instagramResource.getMedia_url());
     }
 
     @Override
@@ -65,7 +65,6 @@ public class ResourceAdapter extends RecyclerView.Adapter<ResourceAdapter.Resour
             super(itemView);
             tvInstagramName = itemView.findViewById(R.id.instagramName);
             tvTimestamp = itemView.findViewById(R.id.instagramDate);
-            txtInstragramId = itemView.findViewById(R.id.userName);
         }
     }
 }
