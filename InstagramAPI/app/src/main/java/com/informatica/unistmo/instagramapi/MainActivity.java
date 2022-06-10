@@ -38,23 +38,28 @@ public class MainActivity extends AppCompatActivity {
 
     private void loadResources() {
         apiService = RetrofitInstance.getClient("https://graph.instagram.com/").create(ApiService.class);
-        /*apiService.getMe("id,username","IGQVJXQnBPejRDaWExTDBJZAzExSklGVzFnM0N3Um1QWjZAMZAG9NRnY0VkJqa2lzdlNzZA2xvQ2V4SzlBU3E4a2FNNTY5V2F5ZA2JYZAE5LdXhLQmdjTUVOQUgzSWI0V2VHc3NfYVpNMVlUdjZAlOWlBUm9PcAZDZD")
+        apiService.getMe("id,username","IGQVJXQnBPejRDaWExTDBJZAzExSklGVzFnM0N3Um1QWjZAMZAG9NRnY0VkJqa2lzdlNzZA2xvQ2V4SzlBU3E4a2FNNTY5V2F5ZA2JYZAE5LdXhLQmdjTUVOQUgzSWI0V2VHc3NfYVpNMVlUdjZAlOWlBUm9PcAZDZD")
                 .enqueue(new Callback<InstragramBody>() {
                     @Override
                     public void onResponse(Call<InstragramBody> call, Response<InstragramBody> response) {
                         setValues(response.body());
-                        loadRecycleyView();
                     }
 
                     @Override
                     public void onFailure(Call<InstragramBody> call, Throwable t) {
                         t.printStackTrace();
                     }
-                });*/
-        apiService.getComposeResources("id,caption",AccessToken.ACCESS_TOKEN.getToken()).enqueue(new Callback<List<ComposeResource>>() {
+                });
+    }
+    private void setValues(InstragramBody body) {
+        userId.setText(body.getId());
+        userName.setText(body.getUsername());
+
+        ApiService apiService = RetrofitInstance.getClient("https://graph.instagram.com/").create(ApiService.class);
+        apiService.getComposeResources("id,username",AccessToken.ACCESS_TOKEN.getToken()).enqueue(new Callback<List<ComposeResource>>() {
             @Override
             public void onResponse(Call<List<ComposeResource>> call, Response<List<ComposeResource>> response) {
-                final List<ComposeResource> list = response.body();
+                System.out.println(response);
             }
 
             @Override
@@ -62,16 +67,5 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        
-    }
-
-    private void loadRecycleyView() {
-        RecyclerView recyclerView
-                = findViewById(R.id.listMultimedia);
-    }
-
-    private void setValues(InstragramBody body) {
-        userId.setText(body.getId());
-        userName.setText(body.getUsername());
     }
 }

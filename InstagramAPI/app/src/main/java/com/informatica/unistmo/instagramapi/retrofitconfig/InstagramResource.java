@@ -20,11 +20,6 @@ public class InstagramResource {
     @Expose
     private String timestamp;
 
-    public InstagramResource(String id, String username, String timestamp){
-        this.id = id;
-        this.username = username;
-        this.timestamp = timestamp;
-    }
     public String getId() {
         return id;
     }
