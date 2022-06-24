@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:context=".MainActivity"
+        android:orientation="vertical">
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <ImageView
+                android:layout_width="89dp"
+                android:layout_height="161dp" app:srcCompat="@drawable/bodega" android:id="@+id/imageViewBodega"/>
+        <ImageView
+                android:layout_width="178dp"
+                android:layout_height="141dp" app:srcCompat="@drawable/mercado" android:id="@+id/imageViewMercado"/>
+    </LinearLayout>
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <ImageView
+                android:layout_width="182dp"
+                android:layout_height="158dp" app:srcCompat="@drawable/park" android:id="@+id/imageViewParque"
+                android:layout_weight="1"/>
+        <ImageView
+                android:layout_width="104dp"
+                android:layout_height="match_parent" app:srcCompat="@drawable/coppel" android:id="@+id/imageViewCoppel"
+                android:layout_weight="1"/>
+    </LinearLayout>
+
+</LinearLayout>
