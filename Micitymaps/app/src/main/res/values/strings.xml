@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Mi city maps</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="title_activity_coppel_maps">CoppelMapsActivity</string>
+    <string name="title_activity_parque_maps">ParqueMapsActivity</string>
+    <string name="title_activity_bodega">BodegaActivity</string>
+</resources>
